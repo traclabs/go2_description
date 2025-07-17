@@ -121,11 +121,11 @@
     <axis xyz="0 0 0" />
   </joint>
 
-  <xacro:go2_leg name="LF" x_joint="0.1934" y_joint="0.0465" y_thigh_joint="0.0955"/> 
+  <xacro:go2_leg name="LF" x_joint="0.1934" y_joint="0.0465" y_thigh_joint="0.0955"/>
   <xacro:go2_leg name="RF" x_joint="0.1934" y_joint="-0.0465" y_thigh_joint="-0.0955"/>
   <xacro:go2_leg name="LR" x_joint="-0.1934" y_joint="0.0465" y_thigh_joint="0.0955"/>
   <xacro:go2_leg name="RR" x_joint="-0.1934" y_joint="-0.0465" y_thigh_joint="-0.0955"/>
 
-  <xacro:include filename="$(find go2_description)/urdf/gazebo.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find go2_description)/urdf/gazebo.urdf.xacro"/> -->
 
 </robot>
