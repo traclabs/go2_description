@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="go2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Go2 -->
+  <xacro:include filename="$(find go2_description)/urdf/go2_description.urdf" />
+
+  <!-- Realsense D435i -->
+  <xacro:arg name="use_nominal_extrinsics" default="false" />
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/>
+  <xacro:sensor_d435i parent="Head_upper" use_nominal_extrinsics="$(arg use_nominal_extrinsics)">
+    <origin xyz="0.045 0 0.070" rpy="0 0 0"/>
+  </xacro:sensor_d435i>
+
+  <!-- Base footprint -->
+  <link name="base_footprint" />
+  <joint name="base_footprint_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 -0.37" />
+    <parent link="base_link" />
+    <child link="base_footprint" />
+  </joint>
+
+</robot>
