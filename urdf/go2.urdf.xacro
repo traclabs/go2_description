@@ -11,12 +11,5 @@
     <origin xyz="0.045 0 0.070" rpy="0 0 0"/>
   </xacro:sensor_d435i>
 
-  <!-- Base footprint -->
-  <link name="base_footprint" />
-  <joint name="base_footprint_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 -0.37" />
-    <parent link="base_link" />
-    <child link="base_footprint" />
-  </joint>
 
 </robot>
