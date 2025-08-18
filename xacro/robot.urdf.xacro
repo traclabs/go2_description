@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
-<robot name="go2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="go2">
+
+  <xacro:arg name="mode" default="gazebo"/>
 
   <!-- Go2 -->
-  <xacro:include filename="$(find go2_description)/urdf/go2_description.urdf.xacro" />
-  <xacro:go2 mode="gazebo"/>
-
+  <xacro:include filename="$(find go2_description)/urdf/go2_description.urdf.xacro"/>  
+  <xacro:go2 mode="$(arg mode)"/>
+      
   <!-- Realsense D435i -->
   <xacro:arg name="use_nominal_extrinsics" default="false" />
   <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/>
   <xacro:sensor_d435i parent="Head_upper" name="head_camera" use_nominal_extrinsics="$(arg use_nominal_extrinsics)">
     <origin xyz="0.045 0 0.070" rpy="0 0 0"/>
-  </xacro:sensor_d435i>
-
+  </xacro:sensor_d435i>      
+      
 </robot>
