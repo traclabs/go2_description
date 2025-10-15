@@ -1,0 +1,58 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+joint_state_broadcaster:
+  ros__parameters:
+    publish_rate: 100.0
+
+joint_trajectory_controller:
+  ros__parameters:
+    state_publish_rate: 100.0 # Defaults to 50
+    action_monitor_rate: 100.0 # Defaults to 20
+    joints:
+        - RF_hip_joint
+        - RF_upper_leg_joint
+        - RF_lower_leg_joint
+        - LF_hip_joint
+        - LF_upper_leg_joint
+        - LF_lower_leg_joint
+        - RR_hip_joint
+        - RR_upper_leg_joint
+        - RR_lower_leg_joint
+        - LR_hip_joint
+        - LR_upper_leg_joint
+        - LR_lower_leg_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+    allow_partial_joints_goal: false # Defaults to false
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: false
+    constraints:
+      stopped_velocity_tolerance: 0.1 # Defaults to 0.01
+      goal_time: 0.1 # Defaults to 0.0 (start immediately)
+    gains:
+        RF_hip_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        RF_upper_leg_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        RF_lower_leg_joint   : {p: 250.0, i: 0.2, d: 5.0}
+        LF_hip_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        LF_upper_leg_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        LF_lower_leg_joint   : {p: 250.0, i: 0.2, d: 5.0}
+        RR_hip_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        RR_upper_leg_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        RR_lower_leg_joint   : {p: 250.0, i: 0.2, d: 5.0}
+        LR_hip_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        LR_upper_leg_joint  : {p: 250.0, i: 0.2, d: 5.0}
+        LR_lower_leg_joint   : {p: 250.0, i: 0.2, d: 5.0}
+#   {p: 250.0, i: 0.2, d: 5.0} --> previously
